@@ -1,4 +1,4 @@
-[class*="icon"]:after { padding-left: .5em }
+[class*="icon-"]:after { padding-left: .5em }
 
 /* === ARROWS === */
 .icon-arrow-rgt:after { content: "\2192" }
