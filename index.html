@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+	<title>Css unicode utilities</title>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Nixie+One" rel="stylesheet">
+	<link href="css/screen.css" media="screen" rel="stylesheet">
+</head>
+<body>
+	<div class="main" role="main">
+		<h1>Unicode symbols in css: a list</h1>
+		<p>
+			Using icons in visual communication is an established pattern to convey a message in a rapid way or to support a verbal one.
+		</p>
+			Icons are widely used in web pages: since some times ago, web authors relied on images to embed them in their pages;
+			nowadays, many deisgners have created stylish icon sets made by fonts, thanks to the widespread support of <code>@font-face</code> css property.
+		<p>
+			In some cases, you may not have to look for over complex solution, but, instead, go for simplicity.
+			For example, it's a common design pattern to separate breadcrumb navigation items with "\".
+			Giving a structure like this:
+		</p>
+		<pre>
+			<code>
+&lt;ul&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;&lt;a href="#"&gt;Products&lt;/a&gt;&lt;/li&gt;
+	&lt;li&gt;This product&lt;/li&gt;
+&lt;/ul&gt;</code>
+		</pre>
+		<p>
+			To do so, you have at least three solution:
+		</p>
+		<ul>
+			<li>an empty element before or after the list items, with the "\" (slash) as text node;</li>
+			<li>the "\" (slash) as backgroud image of the list items;</li>
+			<li>a pseudo-element<sup><a href="#notes">1</a></sup> <code>::before</code> or <code>::after</code> the list items, with its <code>content</code> set to the right unicode character<sup><a href="#notes">2</a></sup>.</li>
+		</ul>
+		<p>
+			The first is a non-semantic solution, so it should be deprecated. The second has two downsides: the browser needs to download an extra image and, for retina displays, you should provide a 2x resolution image.
+			The third solution is clean, fast and works in all browsers (except for IE7 down): no extra image, no resolution issue; moreover, you can style your pseudo-element via css typographic properties.
+		</p>
+		<p>
+			Since I've found myself exploiting that third solution many times, I thought it'd be useful to prepare a set of css classes ready to be dropped in any html element. Sharing this simple work is the second step.
+		</p>
+		<p>For a full reference about unicode characters, visit <a href="http://www.fileformat.info/info/unicode/index.htm">fileformat.info</a></p>
+		<div id="notes" class="notes">
+			<h3>Notes</h3>
+			<ol>
+				<li>The double colons syntax for pseudo-elements (<code>::before</code>, <code>::after</code>) is part of CSS3. If you want to support older browsers like IE8, you need to use the old syntax (<code>:before</code>, <code>:after</code>). Further details <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements">here</a>;</li>
+				<li>your css document <em>must</em> be encoded in UTF-8 to properly render unicode characters. To do so, use the meta tag <code>&lt;meta charset=&quot;utf-8&quot; /&gt;</code> in the <code>&lt;head&gt;</code> of your document or use a media rule in css <code>@charset "UTF-8";</code>. Remember that css inherits charset from html document, so css <code>@charset</code> is useless if html is correctly set to UTF-8.</li>
+			</ol>
+		</div>
+		<h2>Arrows</h2>
+		<ul>
+			<li class="icon-arrow-rgt">Right pointing arrow</li>
+			<li class="icon-arrow-lft">Left pointing arrow</li>
+			<li class="icon-arrow-up">Up pointing arrow</li>
+			<li class="icon-arrow-dwn">Down pointing arrow</li>
+			<li class="icon-arrow-lft-bracket">Left angle bracket</li>
+			<li class="icon-arrow-rgt-bracket">Right angle bracket</li>
+		</ul>
+		<h2>Triangles</h2>
+		<ul>
+			<li class="icon-triangles-rgt-blck">Black right-pointing triangle</li>
+			<li class="icon-triangles-rgt-blck-small">Black right-pointing small triangle</li>
+			<li class="icon-triangles-dbl-rgt-blck">Black right-pointing double triangle</li>
+			<li class="icon-triangles-rgt-wht">White right-pointing triangle</li>
+			<li class="icon-triangles-lft-blck">Black left-pointing triangle</li>
+			<li class="icon-triangles-lft-blck-small">Black left-pointing small triangle</li>
+			<li class="icon-triangles-dbl-lft-blck">Black left-pointing double triangle</li>
+			<li class="icon-triangles-lft-wht">White left-pointing triangle</li>
+			<li class="icon-triangles-up-blck">Black up-pointing triangle</li>
+			<li class="icon-triangles-up-wht">White up-pointing triangle</li>
+			<li class="icon-triangles-dwn-blck">Black down-pointing triangle</li>
+			<li class="icon-triangles-dwn-wht">White down-pointing triangle</li>
+		</ul>
+		<h2>Miscellaneous</h2>
+		<ul>
+			<li class="icon-misc-menu">Navigation icon ("identical to" in math)</li>
+			<li class="icon-misc-close">Close icon ("box drawings light diagonal cross")</li>
+			<li class="icon-misc-checked">Checked</li>
+			<li class="icon-misc-pipe">Pipe ("vertical bar")</li>
+			<li class="icon-misc-emdash">Em dash</li>
+			<li class="icon-misc-backslash">Backslash ("reverse solidus")</li>
+			<li class="icon-misc-minus">Minus</li>
+			<li class="icon-misc-plus">Plus</li>
+		</ul>
+		<h2>Currency Symbols</h2>
+		<ul>
+			<li class="icon-curr-euro">Euro</li>
+			<li class="icon-curr-pound">Pound</li>
+			<li class="icon-curr-usdollar">US dollar</li>
+		</ul>
+		<div class="hide-for-large-down">
+			<p>
+				Here you have the css ready to be copied and pasted. I've used the <code>:after</code> pseudo-element, but you could use <code>:before</code> depending on which fits best for you.
+			</p>
+			<pre>
+				<code>
+				/* === ARROWS === */
+				.icon-arrow-rgt:after { content: "\2192" }
+				.icon-arrow-lft:after { content: "\2190" }
+				.icon-arrow-up:after { content: "\2191" }
+				.icon-arrow-dwn:after { content: "\2193" }
+
+				/* === TRIANGLES === */
+				.icon-triangles-rgt-blck:after { content: "\25b6" }
+				.icon-triangles-rgt-blck-small:after { content: "\25b8" }
+				.icon-triangles-dbl-rgt-blck:after { content: "\23E9" }
+				.icon-triangles-rgt-wht:after { content: "\25b7" }
+
+				.icon-triangles-lft-blck:after { content: "\25c0" }
+				.icon-triangles-lft-blck-small:after { content: "\25c2" }
+				.icon-triangles-dbl-lft-blck:after { content: "\23ea" }
+				.icon-triangles-lft-wht:after { content: "\25c1" }
+
+				.icon-triangles-dwn-blck:after { content: "\25bc" }
+				.icon-triangles-up-blck:after { content: "\25b2" }
+				.icon-triangles-up-wht:after { content: "\25b3" }
+				.icon-triangles-dwn-wht:after { content: "\25bd" }
+
+				/* === MISCELLANEOUS === */
+				.icon-misc-menu:after { content: "\2261" }
+				.icon-misc-close:after { content: "\2573" }
+				.icon-misc-checked:after { content: "\2713" }
+				.icon-misc-pipe:after { content: "\007C" }
+				.icon-misc-emdash:after { content: "\2014" }
+				.icon-misc-backslash:after { content: "\005C" }
+				.icon-misc-minus:after { content: "\2212" }
+				.icon-misc-plus:after { content: "\002b" }
+
+				/* === CURRENCY SYMBOLS === */
+				.icon-curr-euro:after { content: "\20AC" }
+				.icon-curr-pound:after { content: "\00a3" }
+				.icon-curr-usdollar:after { content: "\0024" }
+				</code>
+			</pre>
+		</div>
+	</div>
+	<script src="js/script.js"></script>
+</body>
+</html>
