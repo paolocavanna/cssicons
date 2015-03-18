@@ -1,0 +1,40 @@
+[class*="icon"]:after { padding-left: .5em }
+
+/* === ARROWS === */
+.icon-arrow-rgt:after { content: "\2192" }
+.icon-arrow-lft:after { content: "\2190" }
+.icon-arrow-up:after { content: "\2191" }
+.icon-arrow-dwn:after { content: "\2193" }
+.icon-arrow-lft-bracket:after { content: "\3008" }
+.icon-arrow-rgt-bracket:after { content: "\3009" }
+
+/* === TRIANGLES === */
+.icon-triangles-rgt-blck:after { content: "\25b6" }
+.icon-triangles-rgt-blck-small:after { content: "\25b8" }
+.icon-triangles-dbl-rgt-blck:after { content: "\23E9" }
+.icon-triangles-rgt-wht:after { content: "\25b7" }
+
+.icon-triangles-lft-blck:after { content: "\25c0" }
+.icon-triangles-lft-blck-small:after { content: "\25c2" }
+.icon-triangles-dbl-lft-blck:after { content: "\23ea" }
+.icon-triangles-lft-wht:after { content: "\25c1" }
+
+.icon-triangles-dwn-blck:after { content: "\25bc" }
+.icon-triangles-up-blck:after { content: "\25b2" }
+.icon-triangles-up-wht:after { content: "\25b3" }
+.icon-triangles-dwn-wht:after { content: "\25bd" }
+
+/* === MISCELLANEOUS === */
+.icon-misc-menu:after { content: "\2261" }
+.icon-misc-close:after { content: "\2573" }
+.icon-misc-checked:after { content: "\2713" }
+.icon-misc-pipe:after { content: "\007C" }
+.icon-misc-emdash:after { content: "\2014" }
+.icon-misc-backslash:after { content: "\005C" }
+.icon-misc-minus:after { content: "\2212" }
+.icon-misc-plus:after { content: "\002b" }
+
+/* === CURRENCY SYMBOLS === */
+.icon-curr-euro:after { content: "\20AC" }
+.icon-curr-pound:after { content: "\00a3" }
+.icon-curr-usdollar:after { content: "\0024" }
