@@ -33,6 +33,7 @@
 .icon-misc-backslash:after { content: "\005C" }
 .icon-misc-minus:after { content: "\2212" }
 .icon-misc-plus:after { content: "\002b" }
+.icon-misc-bullet:after { content: "\2022" }
 
 /* === CURRENCY SYMBOLS === */
 .icon-curr-euro:after { content: "\20AC" }
